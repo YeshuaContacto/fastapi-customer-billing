@@ -2,13 +2,15 @@ import zoneinfo
 from datetime import datetime
 
 from fastapi import FastAPI
-from models import  Transaction, Invoice #,Customer
-from db import SessionDep, create_all_tables
+from db import create_all_tables
 from sqlmodel import select
-from .routers import customers
+from .routers import customers, transactions, invoices
 
 app = FastAPI(lifespan=create_all_tables)
+
 app.include_router(customers.router)
+app.include_router(transactions.router)
+app.include_router(invoices.router)
 
 @app.get('/')
 async def root():
@@ -30,17 +32,3 @@ async def time(iso_code: str):
     timezone_str = country_timezones.get(iso)
     tz = zoneinfo.ZoneInfo(timezone_str)
     return{"time": datetime.now(tz)}
-
-#db_customers: list[Customer] = []
-
-
-
-
-@app.post("/transactions")
-async def create_transaction(transaction_data: Transaction):
-    return transaction_data
-
-
-@app.post("/invoices")
-async def create_invoice(invoice_data: Invoice):
-    return invoice_data

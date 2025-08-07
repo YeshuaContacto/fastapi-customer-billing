@@ -4,9 +4,9 @@ from sqlmodel import select
 from models import Customer, CustomerCreate, CustomerUpdate
 from db import SessionDep
 
-router = APIRouter()
+router = APIRouter(tags=["Customers"])
 
-@router.post("/customers", response_model=Customer, tags=["customers"])
+@router.post("/customers", response_model=Customer)
 async def create_customer(customer_data: CustomerCreate, session: SessionDep):
     customer = Customer.model_validate(customer_data.model_dump())
     session.add(customer)
@@ -15,7 +15,7 @@ async def create_customer(customer_data: CustomerCreate, session: SessionDep):
     return customer
 
 
-@router.get("/customers/{customer_id}", response_model=Customer, tags=["customers"])
+@router.get("/customers/{customer_id}", response_model=Customer)
 async def read_customer(customer_id: int, session: SessionDep):
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
@@ -24,7 +24,7 @@ async def read_customer(customer_id: int, session: SessionDep):
     return customer_db
 
 
-@router.patch("/customers/{customer_id}", response_model=Customer, status_code=status.HTTP_201_CREATED, tags=["customers"])
+@router.patch("/customers/{customer_id}", response_model=Customer, status_code=status.HTTP_201_CREATED)
 async def update_customer(customer_id: int, customer_data: CustomerUpdate, session: SessionDep):
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
@@ -38,7 +38,7 @@ async def update_customer(customer_id: int, customer_data: CustomerUpdate, sessi
     return customer_db
 
 
-@router.delete("/customers/{customer_id}", tags=["customers"])
+@router.delete("/customers/{customer_id}")
 async def delete_customer(customer_id: int, session: SessionDep):
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
@@ -49,6 +49,6 @@ async def delete_customer(customer_id: int, session: SessionDep):
     return {"Detail": "ok"}
 
 
-@router.get("/customers", response_model=list[Customer], tags=["customers"])
+@router.get("/customers", response_model=list[Customer])
 async def list_customer(session: SessionDep):
     return session.exec(select(Customer)).all()
