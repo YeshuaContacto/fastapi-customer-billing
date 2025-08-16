@@ -26,3 +26,28 @@ def test_read_customer(client):
     response_read = client.get(f"/customers/{customer_id}")
     assert response_read.status_code == status.HTTP_200_OK
     assert response_read.json()["name"] == "Jhon Doe"
+
+
+def test_list_customers(client):
+    response = client.post(
+        "/customers",
+        json={
+            "name": "Jhon Doe",
+            "email": "jhon@example.com",
+            "age": 33
+        },
+    )
+    response = client.get("/customers")
+    assert response != None
+    assert response != []
+    assert response.status_code == status.HTTP_200_OK
+    assert isinstance(response.json(), list)
+    assert len(response.json()) > 0
+
+
+
+
+
+
+
+
