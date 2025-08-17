@@ -45,6 +45,31 @@ def test_list_customers(client):
     assert len(response.json()) > 0
 
 
+def test_update_customer(client):
+    # 1. Crear un cliente
+    response = client.post(
+        "/customers",
+        json={
+            "name": "Jane Doe",
+            "email": "jane@example.com",
+            "age": 25,
+        },
+    )
+    assert response.status_code == status.HTTP_201_CREATED
+    customer_id = response.json()["id"]
+
+    # 2. Actualizar un campo (PATCH)
+    response_patch = client.patch(
+        f"/customers/{customer_id}",
+        json={"age": 26},
+    )
+    assert response_patch.status_code == status.HTTP_200_OK
+    assert response_patch.json()["age"] == 26
+
+    # 3. Confirmar que realmente se guardó el cambio
+    response_read = client.get(f"/customers/{customer_id}")
+    assert response_read.status_code == status.HTTP_200_OK
+    assert response_read.json()["age"] == 26
 
 
 

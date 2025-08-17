@@ -24,7 +24,7 @@ async def read_customer(customer_id: int, session: SessionDep):
     return customer_db
 
 
-@router.patch("/customers/{customer_id}", response_model=Customer, status_code=status.HTTP_201_CREATED)
+@router.patch("/customers/{customer_id}", response_model=Customer)
 async def update_customer(customer_id: int, customer_data: CustomerUpdate, session: SessionDep):
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
