@@ -39,6 +39,7 @@ async def root(credentials: Annotated[HTTPBasicCredentials, Depends(security)]):
             headers={"WWW-Authenticate": "Basic"},
         )
 
+
 country_timezones = {
     "CO": "America/Bogota",
     "MX": "America/Mexico_City",
