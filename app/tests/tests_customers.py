@@ -1,6 +1,7 @@
 from fastapi import status
 
 def test_create_customer(client):
+    # 1. Crear un cliente
     response = client.post(
         "/customers",
         json={
@@ -9,10 +10,12 @@ def test_create_customer(client):
             "age": 33
         },
     )
+    # 2. Validacion
     assert response.status_code == status.HTTP_201_CREATED
 
 
 def test_read_customer(client):
+    # 1. Crear un cliente
     response = client.post(
         "/customers",
         json={
@@ -23,26 +26,35 @@ def test_read_customer(client):
     )
     assert response.status_code == status.HTTP_201_CREATED
     customer_id: int = response.json()["id"]
+
+    # 2. Consultar cliente creado
     response_read = client.get(f"/customers/{customer_id}")
+
+    # 3. Validaciones
     assert response_read.status_code == status.HTTP_200_OK
     assert response_read.json()["name"] == "Jhon Doe"
 
 
-def test_list_customers(client):
-    response = client.post(
-        "/customers",
-        json={
-            "name": "Jhon Doe",
-            "email": "jhon@example.com",
-            "age": 33
-        },
-    )
-    response = client.get("/customers")
-    assert response != None
-    assert response != []
-    assert response.status_code == status.HTTP_200_OK
-    assert isinstance(response.json(), list)
-    assert len(response.json()) > 0
+    def test_list_customers(client):
+        # 1. Crear un cliente
+        response = client.post(
+            "/customers",
+            json={
+                "name": "Jhon Doe",
+                "email": "jhon@example.com",
+                "age": 33
+            },
+        )
+
+        # 2. Consultar lista de clientes
+        response = client.get("/customers")
+
+        # 3. Validaciones
+        assert response != None
+        assert response != []
+        assert response.status_code == status.HTTP_200_OK
+        assert isinstance(response.json(), list)
+        assert len(response.json()) > 0
 
 
 def test_update_customer(client):
