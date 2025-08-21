@@ -11,57 +11,26 @@ fastapi dev
 ```
 ![Run FastAPI](images/run_fastapi.png)
 
-## Estructura de la aplicación
-|   .gitignore
-|   conftest.py
-|   create_multiple_transactions.py
-|   db.py
-|   db.sqlite3
-|   models.py
-|   README.md
-|   requirements.txt
-|
-+---.pytest_cache
-|   |   .gitignore
-|   |   CACHEDIR.TAG
-|   |   README.md
-|   |
-|   \---v
-|       \---cache
-|               lastfailed
-|               nodeids
-|
-+---app
-|   |   main.py
-|   |   __init__.py
-|   |
-|   +---routers
-|   |   |   customers.py
-|   |   |   invoices.py
-|   |   |   plans.py
-|   |   |   transactions.py
-|   |   |   __init__.py
-|   |   |
-|   |   \---__pycache__
-|   |           customers.cpython-313.pyc
-|   |           invoices.cpython-313.pyc
-|   |           plans.cpython-313.pyc
-|   |           transactions.cpython-313.pyc
-|   |           __init__.cpython-313.pyc
-|   |
-|   +---tests
-|   |   |   tests.py
-|   |   |   tests_customers.py
-|   |   |   __init__.py
-|   |   |
-|   |   \---__pycache__
-|   |           tests_customers.cpython-313-pytest-8.4.1.pyc
-|   |           __init__.cpython-313.pyc
-|   |
-|   \---__pycache__
-|           main.cpython-313.pyc
-|           tests.cpython-313-pytest-8.4.1.pyc
-|           __init__.cpython-313.pyc
+## 📂 Estructura del proyecto
+
+```bash
+.
+├── app
+│   ├── __init__.py
+│   ├── main.py
+│   ├── routers
+│   │   ├── customers.py
+│   │   ├── invoices.py
+│   │   ├── plans.py
+│   │   └── transactions.py
+│   └── tests
+│       ├── tests.py
+│       └── tests_customers.py
+├── db.py
+├── models.py
+├── create_multiple_transactions.py
+├── requirements.txt
+└── README.md
 |
 +---images
 |       der.png
