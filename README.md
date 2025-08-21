@@ -34,7 +34,6 @@ fastapi dev
 |
 +---images
 |       der.png
-|       estructura.png
 |       fastapi.png
 |       report_tests.png
 |       run_fastapi.png
