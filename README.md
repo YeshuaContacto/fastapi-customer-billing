@@ -45,7 +45,38 @@ fastapi dev
         models.cpython-313.pyc
 
 ## Diagrama de BD
-![Diagrama DB](images/der.png)
+```mermaid
+erDiagram
+    CUSTOMER {
+        int id
+        string name
+        string description
+        string email
+        int age
+    }
+    PLAN {
+        int id
+        string name
+        float price
+        string description
+    }
+    CUSTOMERPLAN {
+        int id
+        int plan_id
+        int customer_id
+        string status
+    }
+    TRANSACTION {
+        int id
+        float amount
+        string description
+        int customer_id
+    }
+
+    CUSTOMER ||--o{ CUSTOMERPLAN : subscribes
+    PLAN ||--o{ CUSTOMERPLAN : offers
+    CUSTOMER ||--o{ TRANSACTION : makes
+
 
 ## Midlewares
 Permiten agregar funcionalidades a todos los requests y response de nuestra API
