@@ -46,7 +46,8 @@ fastapi dev
 ```
 
 ## Diagrama de BD
-```mermaid
+```
+mermaid
 erDiagram
     CUSTOMER {
         int id
