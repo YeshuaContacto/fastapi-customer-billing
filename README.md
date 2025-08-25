@@ -96,9 +96,6 @@ https://github.com/fastapi/full-stack-fastapi-template
 Se ejecutaron los tests del proyecto usando `pytest`:
 
 ```bash
-pytest -v --color=yes app/tests/tests_customers.py
+pytest -v app/tests/tests_customers.py
 ```
-app/tests/tests_customers.py::test_create_customer PASSED    [ 25%]
-app/tests/tests_customers.py::test_read_customer   PASSED    [ 50%]
-app/tests/tests_customers.py::test_update_customer PASSED    [ 75%]
-app/tests/tests_customers.py::test_delete_customer PASSED    [100%]
+![Run FastAPI](images/report_tests.png)
