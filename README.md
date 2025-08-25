@@ -91,9 +91,14 @@ La comunidad de FastAPI ha creado un template listo para su uso. Puedes encontra
 https://github.com/fastapi/full-stack-fastapi-template
 ```
 
-## Reporte de pruebas unitarias
+## Test Suite
+
+Se ejecutaron los tests del proyecto usando `pytest`:
+
+```bash
+pytest -v --color=yes app/tests/tests_customers.py
 ```
-coverage run --source app/ -m pytest
-coverage report
-```
-![Reporte pruebas unitarias](images/report_tests.png)
+app/tests/tests_customers.py::test_create_customer PASSED    [ 25%]
+app/tests/tests_customers.py::test_read_customer   PASSED    [ 50%]
+app/tests/tests_customers.py::test_update_customer PASSED    [ 75%]
+app/tests/tests_customers.py::test_delete_customer PASSED    [100%]
