@@ -98,4 +98,3 @@ Se ejecutaron los tests del proyecto usando `pytest`:
 ```bash
 pytest -v app/tests/tests_customers.py
 ```
-![Run FastAPI](images/report_tests.png)
