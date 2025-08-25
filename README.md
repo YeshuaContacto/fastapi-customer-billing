@@ -78,7 +78,7 @@ erDiagram
     CUSTOMER ||--o{ CUSTOMERPLAN : subscribes
     PLAN ||--o{ CUSTOMERPLAN : offers
     CUSTOMER ||--o{ TRANSACTION : makes
-
+```
 
 ## Midlewares
 Permiten agregar funcionalidades a todos los requests y response de nuestra API
