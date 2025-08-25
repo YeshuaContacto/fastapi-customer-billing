@@ -43,6 +43,7 @@ fastapi dev
         db.cpython-313.pyc
         main.cpython-313.pyc
         models.cpython-313.pyc
+```
 
 ## Diagrama de BD
 ```mermaid
