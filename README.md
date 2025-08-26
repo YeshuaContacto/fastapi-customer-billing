@@ -1,7 +1,7 @@
 # FastAPI
 ![FastAPI](images/fastapi.png)
 
-## Instalación  
+## 💻 Instalación  
 ```
 pip install -r requirements.txt
 ```
@@ -45,7 +45,7 @@ fastapi dev
         models.cpython-313.pyc
 ```
 
-## Diagrama de BD
+## 🗄️ Diagrama de DB
 ```
 mermaid
 erDiagram
@@ -80,18 +80,18 @@ erDiagram
     CUSTOMER ||--o{ TRANSACTION : makes
 ```
 
-## Middlewares
+## 🔗 Middlewares
 Permiten agregar funcionalidades a todos los requests y responses de nuestra API
 
 
-## Template de la comunidad 
+## 🌐 Template de la comunidad
 
 La comunidad de FastAPI ha creado un template listo para su uso. Puedes encontrarlo en el siguiente [enlace](https://github.com/fastapi/full-stack-fastapi-template)
 ```
 https://github.com/fastapi/full-stack-fastapi-template
 ```
 
-## Test Suite
+## 🧪 Test Suite
 
 Se ejecutaron los tests del proyecto usando `pytest`:
 
@@ -100,8 +100,10 @@ pytest -v app/tests/tests_customers.py
 ```
 ![Run FastAPI](images/tests.png)
 
-## Contribución
+## 🌱 Contribución
+
 ¡Las contribuciones son bienvenidas! Haz un fork, crea una rama y envía un pull request.  
 
-## Licencia
+## 📝 Licencia
+
 MIT License
