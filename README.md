@@ -80,8 +80,8 @@ erDiagram
     CUSTOMER ||--o{ TRANSACTION : makes
 ```
 
-## Midlewares
-Permiten agregar funcionalidades a todos los requests y response de nuestra API
+## Middlewares
+Permiten agregar funcionalidades a todos los requests y responses de nuestra API
 
 
 ## Template de la comunidad 
@@ -99,3 +99,9 @@ Se ejecutaron los tests del proyecto usando `pytest`:
 pytest -v app/tests/tests_customers.py
 ```
 ![Run FastAPI](images/tests.png)
+
+## Contribución
+¡Las contribuciones son bienvenidas! Haz un fork, crea una rama y envía un pull request.  
+
+## Licencia
+MIT License
